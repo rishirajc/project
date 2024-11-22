@@ -6,7 +6,12 @@ import {styled} from "styled-components"
 const MAIN=styled.div`
     background-color: #57b6d8;
 `
-
+const BTN=styled.button`
+    background-color: yellow;
+`
+const ORDER=styled.button`
+    background-color: green;
+`
 const Details = () => {
    const urlvalue= useParams()
    console.log( 'url values',urlvalue.id);
@@ -49,9 +54,9 @@ const Details = () => {
             <h3>WARRENTY:{li.warrantyInformation}</h3>
      
                 <Link to={`/cart/${li.id}`}>
-                <button >ADD TO CART </button>
+                <BTN>ADD TO CART </BTN>
             </Link>
-           <Link to={'/order'}><button>PLACE ORDER</button></Link> 
+           <Link to={'/order'}><ORDER>PLACE ORDER</ORDER></Link> 
             </>
         ))}
         

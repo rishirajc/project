@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-
+import { Link } from 'react-router-dom';
 
 const Cartpage = () => {
     const carted= useParams()
@@ -17,17 +17,21 @@ const Cartpage = () => {
         
     }
     function display(){
-      setstate1(state+1)
+      setstate1(state1+1)
 
     }
     function display2(){
-      setstate1(state > 0 ? state - 1 :0)
+      setstate1(state1 > 0 ? state1 - 1 :0)
 
     } 
     function display3(){
       setstate1(0)
 
     }
+ function buynow(){
+
+ }
+
     useEffect(()=>{
         world()
     },[])
@@ -39,7 +43,7 @@ const Cartpage = () => {
     console.log('id value',orderid);
     
   return (
-    <div>
+    <div style={{backgroundColor:'pink'}}>
       {orderid?.map((li)=>(
         <div>
         <img src={li.image} width={'500px'} height={'500px'} alt="" />
@@ -47,9 +51,16 @@ const Cartpage = () => {
 
         </div>
       ))}
-      <button onClick={display}>increment</button>
-      <button onClick={display2}>decrement</button>
+
+<h2>QUANTITY:{state1}</h2>
+      <button onClick={display2}>-</button>
+      <button onClick={display}>+</button>
+
       <button onClick={display3}>reset</button>
+      <Link to={'/order'}><button onClick={buynow}>BUY NOW</button></Link> 
+         
+    
+
       </div>
   
   )
